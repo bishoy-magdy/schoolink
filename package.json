@@ -1,0 +1,43 @@
+{
+  "name": "schoolink",
+  "version": "1.0.0",
+  "description": "schoolink",
+  "scripts": {
+    "start": "npx nodemon server.ts",
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "author": "bishoy magdy",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "google-auth-library": "^8.7.0",
+    "helmet": "^6.1.5",
+    "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.5-lts.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.4",
+    "ts-node": "^10.9.1",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.16",
+    "@types/express-session": "^1.17.7",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/multer": "^1.4.7",
+    "@types/validator": "^13.7.15",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-security": "^1.7.1",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.9.4"
+  }
+}

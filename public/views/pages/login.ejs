@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <%- include('../partials/bootstrap') %>
+</head>
+
+<body>
+
+  <div class="row align-items-center" style="height: 85vh;">
+    <div class="mx-auto col-10 col-md-8 col-lg-6">
+      <form action="/auth/login" method="post">
+        <h1>Schoolink Sign In</h1>
+        <p class="description">
+          Join and interact with us!
+        </p>
+
+        <div class="form-floating mb-3">
+          <input class="form-control" type="text" name="login" id='login' autocomplete="off" >
+          <label for="floatingInput">Username or email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input class="form-control" type="password" name="password" id='password' autocomplete="on">
+          <label for="floatingInput">Password</label>
+        </div>
+
+        <input name="csrfToken" value="<%= csrfToken %>" hidden>
+
+        <button type="submit" class="btn btn-primary btn-customized mt-4">
+          LogIn
+        </button>
+      </form>
+      <hr>
+      <a href="/auth/v1/g/oauth2url" class="btn btn-info btn-customized mt-4">
+        Login With Google
+      </a>
+    </div>
+  </div>
+
+</body>
+
+</html>

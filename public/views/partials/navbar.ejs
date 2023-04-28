@@ -1,0 +1,41 @@
+<header class="p-3">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+        <p class="display-6" style="color: black;">Schoolink</p>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 ">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2">About</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      </form>
+
+      <div class="text-end" id='sing_in_up'>
+        <% if(!username){%>
+        <a href="/login" style="display: inline-block;">
+          <button type="submit" class="btn btn-outline-primary me-2">Login</button>
+        </a>
+
+        <a href="/signup" style="display: inline-block;">
+          <button type="submit" class="btn btn-warning ">Sign-up</button>
+        </a>
+        <% } %>
+
+        <% if(username){ %>
+        <p style="display: inline-block;">
+          Welcome, <%= username %>
+        </p>
+
+        <a href="/auth/logout" style="display: inline-block;">
+          <button type="submit" class="btn btn-outline-danger">Logout</button>
+        </a>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</header>

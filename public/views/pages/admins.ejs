@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admins</title>
+  <script src="/js/admin.js" defer></script>
+  <%- include('../partials/bootstrap') %>
+</head>
+
+<body>
+  <%- include('../partials/navbar') %>
+
+
+  <div class="container p-5">
+    <h1 class="display-6" style="display: inline;">Adimns</h1>
+
+    <a href="/createPost" style = "float: right;" >
+      <button class="btn btn-outline-success" type="button">Create a new post</button>
+    </a>
+
+  </div>
+  
+  <div class='container'>
+    <div class="list-group">
+
+      <% admins.forEach((admin) => { %>
+      <a href="#" class="list-group-item list-group-item-action"> <%= admin.username %></a>
+      <% }) %>
+    </div>
+
+    <div class="input-group p-5">
+      <input type="text" class="form-control" id='user_name' placeholder="Enter username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <input id = 'carf_token' value="<%= csrfToken %>" hidden>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" id='add_user' type="button">Add</button>
+        <button class="btn btn-outline-secondary" id='remove_user' type="button">Remove</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

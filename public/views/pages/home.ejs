@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <script src="/js/home.js" defer></script>
+  <%- include('../partials/bootstrap') %>
+</head>
+
+<body>
+  <%- include('../partials/navbar') %>
+
+  <div class='container p-5' style="text-align: center; width: 75%;" id='posts'>
+
+    <div class="text-center">
+      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+      </div>
+    </div>
+
+    <br>
+
+  </div>
+
+  <div class="center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+
+        <% for(let page = Math.max(parseInt(pageNumber) - 3, 0); page <= Math.min(parseInt(pageNumber) + 3, parseInt(totalPages) - 1) ; page++) { %>
+
+        <% if(page < parseInt(pageNumber)){ %>
+        <li class="page-item">
+          <a class="page-link" href="/home?page=<%= page %>">
+            <%= page + 1 %>
+          </a>
+        </li>
+        <% } else if(page === parseInt(pageNumber)){ %>
+        <li class="page-item active">
+          <a class="page-link" href="/home?page=<%= pageNumber %>">
+            <%= page + 1 %>
+          </a>
+        </li>
+        <% } else { %>
+        <li class="page-item">
+          <a class="page-link" href="/home?page=<%= page %>">
+            <%= page + 1 %>
+          </a>
+        </li>
+        <% } %>
+        <% } %>
+      </ul>
+    </nav>
+    <input id = "page_number" value = "<%= pageNumber %>" hidden>
+  </div>
+</body>
+</html>

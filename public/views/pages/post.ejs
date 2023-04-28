@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> <%- post.title %> </title>
+  <script src="/js/post.js" defer></script>
+
+  <%- include('../partials/bootstrap') %>
+  <%- include('../partials/markdown') %>
+</head>
+
+<body>
+  <%- include('../partials/navbar') %>
+
+  <div class='container'>
+    <figure>
+      <h2 class="display-5" style="word-break: break-all;" id="title"> <%- post.title %> </h2>
+      <br>
+      <figcaption class="blockquote-footer" id="by"><%= post.by %></figcaption>
+    </figure>
+  </div>
+
+  <div class="container" style="overflow:auto;">
+    <div class="card">
+      <div class="card-body markdown-body" style="text-align: left;" id='post_body'>
+      </div>
+      <div class="card-footer" style="padding: 1 1 1 1;">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+
+              <h6 class="display-6" id='post_likes' style="font-size: 100% ;float: left; margin: 0; padding-top: 1%;">
+                <%= post.likes %>
+              </h6>
+
+              <form method="post" action="/add/like">
+                <input name="postId" value="<%= postId %>" hidden>
+                <button type="submit" style="border: 0; background-color: inherit; width: 0; height: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" id='heart_icon' width="30" height="30" fill="pink" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+            <div class="col" style="width: 5%; height: 5%; float: left;">
+              <h6 style="float: right; margin: 0 0 0 0;" id="poasted_at">
+                <%= new Date(post.poastedAt).toLocaleString() %>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <input id="post_id" value="<%= postId %>" hidden>
+  </div>
+
+  <br>
+  <div class="container" id='commetns'>
+
+  </div>
+
+  <!--    create comment -->
+  <form action="/add/comment" method="post" id = 'comment_creation_form'>
+    <div class="container p-5">
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="content" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">comment</label>
+      </div>
+      <input type="hidden" name="postId" value="<%= postId %>">
+      <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
+
+      <div class="float-end mt-2">
+        <button type="submit" class="btn btn-primary btn-sm">Create a comment</button>
+      </div>
+    </div>
+  </form>
+  <div hidden id="post_raw"> <%- post.content %> </div>
+</body>
+
+</html>

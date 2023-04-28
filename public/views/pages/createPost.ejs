@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/js/createPost.js" defer></script>
+  <title> Create a new post </title>
+  <%- include('../partials/bootstrap') %>
+  <%- include('../partials/markdown') %>
+</head>
+
+<body>
+  <%- include('../partials/navbar') %>
+
+  <form action="/create/post" method="post" class="full-height" id = 'post_creation_form'>
+    <div class="full-height container">
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name='title' placeholder="Post Title" aria-label="Post Title" aria-describedby="basic-addon1">
+        <label for="floatingInput">Enter Post Title</label>
+      </div>
+
+      <div style="text-align: right; ">
+        <div class="btn-group btn-group-sm m-1" role="group">
+          <button type="button" class="btn btn-outline-primary" id='write'>Write</button>
+          <button type="button" class="btn btn-outline-primary" id='preview'>Preview</button>
+        </div>
+      </div>
+
+      <div class="row full-height">
+
+        <div class="col-xs-6 full-height" id='markdown_container'>
+          <textarea id="text_area" name='content' style="width: 100%;" rows="20" spellcheck="false"></textarea>
+        </div>
+
+        <div class="col-xs-6 full-height" id='html_container' hidden>
+          <div class="card p-3">
+            <div id='html_result' class="markdown-body full-height">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <input name="csrfToken" value="<%= csrfToken %>" hidden>
+
+      <br>
+      <button type="submit" class='btn btn-info m-2'>Create</button>
+    </div>
+  </form>
+
+</body>
+
+
+</html>
