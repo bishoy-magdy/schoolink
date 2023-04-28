@@ -7,6 +7,8 @@ One of the main goals during the design of the project was to apply best practis
 # Demo
 For testing, you can login after building the project with `username` = admin and `password` = admin.
 
+https://user-images.githubusercontent.com/58605547/235036854-a1ae268f-46f4-4ad9-9599-b1bcb32fb9ba.mp4
+
 
 # Documentation
 [ERD](/docs/ERD%20Schoolink.md)
